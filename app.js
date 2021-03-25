@@ -13,15 +13,9 @@ const userRoutes = require("./Routes/userRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-const urls = [
-  /\localhost:3000\signup/,
-];
-
 app.use(
   cors({
-    origin: urls,
-    credentials: true,
+    origin: "*"
   })
 );
 app.use(express.json());
