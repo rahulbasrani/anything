@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const Comment = require("../models/comments");
-const Blog = require("../models/blog");
+const Comment = require("../Models/Comments");
+const Blog = require("../Models/Blogs");
 
 exports.postComment = async (req, res, next) => {
   const blogId = req.params.blogId;

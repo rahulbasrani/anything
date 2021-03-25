@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const Blogs = require("../models/blog");
+const Blogs = require("../Models/Blogs");
 
-const Blog = require("../models/blog");
+const Blog = require("../Models/Blogs");
 
 exports.getBlogs = async (req, res, next) => {
   let { page, data } = req.query;

@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const User = require("../models/user");
-const Blog = require("../models/blog");
+const User = require("../Models/User");
+const Blog = require("../Models/Blogs");
 
 exports.getUser = async (req, res, next) => {
   if (!mongoose.isValidObjectId(req.params.userId)) {
@@ -74,11 +74,8 @@ exports.postSignup = async (req, res, next) => {
     const hashedPassword = await bcrypt.hash(req.body.password, 16);
 
     const user = new User({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
+      username: req.body.username,
       password: hashedPassword,
-      email:req.body.email,
-      about:req.body.about
     });
 
     const dbUser = await user.save();

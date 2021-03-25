@@ -9,8 +9,10 @@ const {
 const blogController = require("../Controllers/blogController");
 const commentController = require("../Controllers/commentController");
 
+// GET /blogs/
 router.get("/", blogController.getBlogs);
 
+// POST /blogs/
 router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
@@ -19,8 +21,10 @@ router.post(
   blogController.postBlog
 );
 
+// GET /blogs/blog/:blogId
 router.get("/blog/:blogId", blogController.getSpecificBlog);
 
+// PUT /blogs/blog/:blogId
 router.put(
   "/blog/:blogId",
   passport.authenticate("jwt", { session: false }),
@@ -29,12 +33,14 @@ router.put(
   blogController.updateBlog
 );
 
+// DELETE /blogs/blog/:blogId
 router.delete(
   "/blog/:blogId",
   passport.authenticate("jwt", { session: false }),
   blogController.deleteBlog
 );
 
+// POST /blogs/blog/:blogId/comment
 router.post(
   "/blog/:blogId/comment",
   commentValidator(),
@@ -42,6 +48,7 @@ router.post(
   commentController.postComment
 );
 
+// DELETE /blogs/blog/:blogId/comment/:commetId
 router.delete(
   "/blog/:blogId/comment/:commentId",
   passport.authenticate("jwt", { session: false }),
